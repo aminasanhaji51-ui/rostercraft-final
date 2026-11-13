@@ -8,13 +8,15 @@ const FEATURES = [
 ];
 
 export default function Home() {
+  const configuredDays = import.meta.env.VITE_TRIAL_DAYS?.trim();
+  const trialLabel = configuredDays ? `Start your ${configuredDays}-day free trial` : 'Start a free trial';
   return (
     <>
       <section className="hero">
         <h1>Schedules your team can live with</h1>
         <p>Rostercraft builds staff schedules for restaurants and shops, in minutes instead of evenings.</p>
         <Link to="/trial" className="button">
-          Start a free trial
+          {trialLabel}
         </Link>
       </section>
       <TimeEstimator />
